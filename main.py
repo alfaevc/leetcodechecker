@@ -88,7 +88,7 @@ if __name__ == '__main__':
 
         for link in df[user].iloc[weekstart:].tolist():
             if isinstance(link, str):
-                m = re.match(r'https://leetcode\.com/submissions/detail/\d*/', link)
+                m = re.match(r'https://leetcode\.com/(.*)submissions/detail/\d*/', link)
                 if m is not None:
                     res = authenticated_get(link)
                     searchres = re.search(r"editCodeUrl: '/problems/(.*)/'", res.text)
